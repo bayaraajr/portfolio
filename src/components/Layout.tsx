@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Layout = ({ children }: any) => (
     <motion.div

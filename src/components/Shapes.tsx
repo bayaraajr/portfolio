@@ -59,6 +59,16 @@ export function Sphere() {
     );
 }
 
+export function Guitar() {
+    return (
+        <motion.mesh position={[-0.5, -0.5, 0]} variants={{ hover: { z: 2 } }}>
+            <sphereGeometry args={[0.4]} />
+            <Material />
+        </motion.mesh>
+    );
+}
+
+
 export function Cone() {
     return (
         <motion.mesh

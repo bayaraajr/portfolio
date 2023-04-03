@@ -1,12 +1,13 @@
 import Layout from '@/components/Layout';
+import Page from '@/components/Page';
 import React from 'react';
 
-const Projects = () => {
+const Contact = () => {
     return (
-        <Layout>
+        <Page title="Contact">
             <h1>Contact</h1>
-        </Layout>
+        </Page>
     )
 }
 
-export default Projects;
+export default Contact;
