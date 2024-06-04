@@ -1,5 +1,3 @@
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import DeskTop from "./DeskTop";
 import DeskLeg from "./DeskLeg";
 import Monitor from "./Monitor";

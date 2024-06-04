@@ -22,8 +22,8 @@ const Basketball: FC<BasketballProps> = (props) => {
                 // ping.play();
             },
             args: [0.5],
-            mass: 2,
-            position: [0, 1.5, 0],
+            mass: 0.2,
+            position: [0, 0, 0],
             velocity: [0, 10, 0],
             rotation: [1, 1, 1],
         }),

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Group, Mesh } from "three";
 
 export default function ContactGround(props: PlaneProps) {
-    const [ref] = usePlane(() => ({ material: "ground", type: "Static", ...props }), useRef<Group>(null));
+    const [ref] = usePlane(() => ({ material: "concrete", type: "Dynamic", ...props }), useRef<Group>(null));
 
     return (
         <group ref={ref}>
