@@ -1,5 +1,5 @@
 "use client";
-import Basketball from "@jay/components/Basketball";
+import Basketball from "@jay/components/3D/Basketball";
 import { Canvas } from "@react-three/fiber";
 
 export default function LoadingPage() {
