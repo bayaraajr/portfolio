@@ -33,7 +33,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { MTLLoader } from "three/examples/jsm/Addons.js";
 import { useLoader } from "@react-three/fiber";
 
-function Model(props: any) {
+function InvokerModel(props: any) {
     const group = useRef();
     const { nodes, materials, scene, animations } = useGLTF("/dota_2_invoker_kid/waving.glb");
     // const mtls = useLoader(MTLLoader, "/dota_2_invoker_kid/scene.mtl");
@@ -129,4 +129,4 @@ function Model(props: any) {
 
 useGLTF.preload("/dota_2_invoker_kid/scene.gltf");
 
-export default Model;
+export default InvokerModel;
