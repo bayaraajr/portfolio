@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import Footer from "@jay/components/Footer";
 import Navbar from "@jay/components/Navbar";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const montserrat = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Hey I'm Jay!",

@@ -6,7 +6,7 @@ export type SpotifyPlayerProps = HTMLProps<HTMLDivElement> & MotionProps;
 
 const SpotifyPlayer: FC<SpotifyPlayerProps> = (props) => {
     return (
-        <motion.div className="bg-black/90 w-full h-full rounded-3xl col-span-2 p-4 shadow-md" {...props}>
+        <motion.div className="bg-black/90 w-full min-h-[150px] h-full rounded-3xl p-4 shadow-md" {...props}>
             <FaSpotify className="text-[#1DB954] text-6xl" />
             <p className="text-white">Last played</p>
         </motion.div>

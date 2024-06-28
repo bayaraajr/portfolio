@@ -8,10 +8,10 @@ export type BasketballGridProps = HTMLProps<HTMLDivElement> & MotionProps;
 const BasketballGrid: FC<BasketballGridProps> = (props) => {
     return (
         <motion.div className="bg-white relative rounded-3xl p-4 shadow-md" {...props}>
-            <Canvas className="w-full h-full">
+            {/* <Canvas className="w-full h-full">
                 <StaticBasketball scale={6} />
                 <ambientLight intensity={Math.PI * 6} />
-            </Canvas>
+            </Canvas> */}
         </motion.div>
     );
 };
