@@ -17,7 +17,7 @@ const Hexagon: FC<MeshProps> = (props) => {
 
     return (
         <line>
-            <bufferGeometry vertices={vertices} />
+            {/* <bufferGeometry vertices={vertices} /> */}
             <lineBasicMaterial color="red" />
         </line>
     );

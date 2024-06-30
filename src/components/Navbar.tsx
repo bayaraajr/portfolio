@@ -7,7 +7,7 @@ export interface NavbarProps extends HTMLProps<HTMLDivElement> {}
 const Navbar: FC<NavbarProps> = (props) => {
     const [activeTab, setActiveTab] = useState<number>(0);
     const tabs = ["About", "Projects", "Media", "Contact"];
-    const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const tabRefs = useRef<any[]>([]);
     const getPillPosition = () => {
         if (!tabRefs.current[activeTab]) return { width: 0, left: 0 };
         const { offsetWidth: width, offsetLeft: left } = tabRefs.current[activeTab]!;
@@ -23,7 +23,7 @@ const Navbar: FC<NavbarProps> = (props) => {
                         <motion.div
                             key={tab}
                             onClick={() => setActiveTab(index)}
-                            ref={(el) => (tabRefs.current[index] = el)}
+                            ref={(el) => (tabRefs.current[index] = el as any)}
                             className={`z-20 [&:nth-last-child(2)]:mr-0 first:ml-0 mx-4 px-4 py-1 rounded-full cursor-pointer`}
                         >
                             <p className="text-bold">{tab}</p>

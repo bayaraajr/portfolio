@@ -54,9 +54,9 @@ function InvokerModel(props: any) {
         <group ref={group} {...props} dispose={null}>
             <group name="Scene">
                 <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-                    <skinnedMesh
+                    {/* <skinnedMesh
                         name="Object_185"
-                        geometry={nodes.Object_185.geometry}
+                        geometry={nodes.Object_185!.geometry}
                         material={nodes.Object_185.material}
                         skeleton={nodes.Object_185.skeleton}
                     />
@@ -120,7 +120,7 @@ function InvokerModel(props: any) {
                         material={nodes.Object_205.material}
                         skeleton={nodes.Object_205.skeleton}
                     />
-                    <primitive object={nodes.mixamorigHips} />
+                    <primitive object={nodes.mixamorigHips} /> */}
                 </group>
             </group>
         </group>

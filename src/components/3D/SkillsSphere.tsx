@@ -26,7 +26,6 @@ const Word = ({
 
     useEffect(() => {
         document.body.style.cursor = hovered ? "pointer" : "auto";
-        console.log(children, props.position);
     }, [hovered]);
 
     useFrame((state) => {
