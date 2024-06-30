@@ -9,7 +9,7 @@ const Introduction: FC<IntroductionProps> = (props) => {
             initial={{ y: 150, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4 }}
-            className="bg-white gap-4 grid grid-cols-3 rounded-3xl col-span-2 p-8 shadow-md"
+            className="bg-white gap-4 grid h-[250px] grid-cols-3 rounded-3xl col-span-2 p-8 shadow-md"
             {...props}
         >
             <div className="relative">

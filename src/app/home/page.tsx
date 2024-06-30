@@ -2,6 +2,7 @@
 
 import AegisGrid from "@jay/components/grids/AegisGrid";
 import BasketballGrid from "@jay/components/grids/BasketballGrid";
+import CertificationGrid from "@jay/components/grids/CertificationGrid";
 import ContactGrid from "@jay/components/grids/ContactGrid";
 import CurrentTime from "@jay/components/grids/CurrentTime";
 import EGolomt from "@jay/components/grids/EGolomt";
@@ -9,6 +10,7 @@ import InstagramStories from "@jay/components/grids/InstagramStories";
 import Introduction from "@jay/components/grids/Introduction";
 import LinksGrid from "@jay/components/grids/LinksGrid";
 import Location from "@jay/components/grids/Location";
+import SkillsGrid from "@jay/components/grids/SkillsGrid";
 import SpotifyPlayer from "@jay/components/grids/Spotify";
 export default function Home() {
     return (
@@ -18,12 +20,13 @@ export default function Home() {
                 <CurrentTime />
                 <InstagramStories />
                 <EGolomt />
+                <SkillsGrid />
                 <AegisGrid />
-                <Location />
-                <SpotifyPlayer />
+                <CertificationGrid />
                 <ContactGrid />
-                <BasketballGrid />
                 <LinksGrid />
+                <BasketballGrid />
+                <SpotifyPlayer />
             </div>
         </div>
     );

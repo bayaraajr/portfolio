@@ -10,7 +10,7 @@ export type AegisGridProps = HTMLProps<HTMLDivElement> & MotionProps;
 
 const AegisGrid: FC<AegisGridProps> = (props) => {
     return (
-        <motion.div className="bg-white relative rounded-3xl p-4 shadow-md" {...props}>
+        <motion.div className="bg-white relative h-[250px] rounded-3xl p-4 shadow-md" {...props}>
             {/* <Canvas className="w-full h-full"> */}
             {/* camera={{ position: [5, 10, 15] }} */}
             {/* <ambientLight intensity={Math.PI * 12} /> */}

@@ -16,7 +16,13 @@ const InstagramStories: FC<InstagramStoriesProps> = (props) => {
         slidesToScroll: 1,
     };
     return (
-        <motion.div className="bg-white relative overflow-hidden row-span-2 rounded-xl shadow-md" {...props}>
+        <motion.div
+            initial={{ y: 150, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="bg-white relative h-[500px] overflow-hidden row-span-2 rounded-xl shadow-md"
+            {...props}
+        >
             <Slider {...settings} className="h-full w-full">
                 <SlickSlide imgSrc="/images/instagram/1.webp" country="my" location="Kuala Lumpur, Malaysia" />
                 <SlickSlide imgSrc="/images/instagram/2.webp" country="us" location="Chicago, United States" />

@@ -27,17 +27,23 @@ const CurrentTime: FC<CurrentTimeProps> = (props) => {
     }, []);
 
     return (
-        <motion.div className="bg-white relative rounded-3xl p-4 shadow-md" {...props}>
-            <div className="absolute bottom-4 left-4">
+        <motion.div
+            initial={{ y: 150, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="bg-white overflow-hidden relative h-[250px] rounded-3xl shadow-md"
+            {...props}
+        >
+            <div className="absolute text-white z-20 top-8 left-4">
                 <p className="text-6xl">
                     {hours}:{minutes}
                 </p>
                 <p>Fairfield IA, US</p>
                 <p className="text-xs">GMT -7</p>
             </div>
-            <div>
-                <Map token="asd"></Map>
-            </div>
+            <div className="absolute top-0 z-10 left-0 bg-black/80 w-full h-full"></div>
+            <motion.img className="w-full" src="/images/fairfield.webp" alt="Fairfield" />
+            <div></div>
         </motion.div>
     );
 };
