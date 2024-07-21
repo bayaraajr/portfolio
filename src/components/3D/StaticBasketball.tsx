@@ -5,7 +5,8 @@ import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader.js";
 import { useSphere } from "@react-three/cannon";
 import { Mesh } from "three";
 
-const StaticBasketball: FC<MeshProps> = (props) => {
+export type BallProps = MeshProps & { animated?: boolean };
+const StaticBasketball: FC<BallProps> = ({ animated = true, ...props }) => {
     const materials: any = useLoader(MTLLoader, "/basketball.mtl");
     const object: any = useLoader(OBJLoader, "/basketball.obj", (loader) => {
         materials.preload();
@@ -30,7 +31,7 @@ const StaticBasketball: FC<MeshProps> = (props) => {
     // );
 
     useFrame((state, delta) => {
-        if (meshRef.current) {
+        if (meshRef.current && animated) {
             meshRef.current.rotation.x += delta;
             meshRef.current.rotation.y += delta;
             meshRef.current.rotation.z += delta;

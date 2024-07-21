@@ -1,26 +1,36 @@
-import { FC, useMemo, useRef } from "react";
-import { MeshProps } from "@react-three/fiber";
-import { Vector3 } from "three";
+import { useMemo } from "react";
+import * as THREE from "three";
 
-const Hexagon: FC<MeshProps> = (props) => {
-    const vertices = useMemo(() => {
-        let points = [];
-        for (let i = 0; i <= 6; i++) {
-            const angle = (Math.PI * 2 * i) / 6;
-            points.push([1 * Math.cos(angle), 1 * Math.sin(angle), 0]);
+export default function BeveledHexagonGeometry({ size = 10, ...rest }) {
+    const shape = useMemo(() => {
+        const shape = new THREE.Shape();
+        const sides = 6,
+            Xcenter = 0,
+            Ycenter = 0;
+
+        shape.moveTo(Xcenter + size * Math.cos(0), Ycenter + size * Math.sin(0));
+
+        for (let i = 1; i <= sides; i += 1) {
+            shape.lineTo(
+                Xcenter + size * Math.cos((i * 2 * Math.PI) / sides),
+                Ycenter + size * Math.sin((i * 2 * Math.PI) / sides),
+            );
         }
-        points.map((point) => new Vector3(...point));
-        return points;
-    }, []);
+        return shape;
+    }, [size]);
 
-    const ref = useRef();
-
-    return (
-        <line>
-            {/* <bufferGeometry vertices={vertices} /> */}
-            <lineBasicMaterial color="red" />
-        </line>
+    const settings = useMemo(
+        () => ({
+            steps: 2,
+            depth: 10,
+            bevelEnabled: true,
+            bevelThickness: 0.2,
+            bevelSize: 0.5,
+            bevelOffset: 0,
+            bevelSegments: 8,
+        }),
+        [],
     );
-};
 
-export default Hexagon;
+    return <extrudeGeometry args={[shape, settings]} {...rest}></extrudeGeometry>;
+}

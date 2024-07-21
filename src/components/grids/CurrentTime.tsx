@@ -30,19 +30,26 @@ const CurrentTime: FC<CurrentTimeProps> = (props) => {
         <motion.div
             initial={{ y: 150, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.4, type: "spring" }}
             className="bg-white overflow-hidden relative h-[250px] rounded-3xl shadow-md"
             {...props}
         >
-            <div className="absolute text-white z-20 top-8 left-4">
-                <p className="text-6xl">
-                    {hours}:{minutes}
+            <div className="absolute bg-gray-400/40 p-2 rounded-xl text-gray-800 z-20 top-4 right-4">
+                <p className="text-lg text-right font-bold">
+                    {hours}
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, type: "spring", repeat: Infinity, repeatDelay: 1 }}
+                    >
+                        :
+                    </motion.span>
+                    {minutes}
                 </p>
-                <p>Fairfield IA, US</p>
-                <p className="text-xs">GMT -7</p>
+                <p className="text-xs text-right">Fairfield IA, US</p>
             </div>
-            <div className="absolute top-0 z-10 left-0 bg-black/80 w-full h-full"></div>
-            <motion.img className="w-full" src="/images/fairfield.webp" alt="Fairfield" />
+            {/* <div className="absolute top-0 z-10 left-0 bg-black/80 w-full h-full"></div> */}
+            <motion.img className="w-full" src="/svgs/dog.svg" alt="Fairfield" />
             <div></div>
         </motion.div>
     );

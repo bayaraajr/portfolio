@@ -1,8 +1,19 @@
-import { useRef, useState, useMemo, useEffect, Suspense, useCallback } from "react";
+import { useRef, useState, useMemo, useEffect, Suspense, useCallback, memo } from "react";
 
 import * as THREE from "three";
 import { Canvas, ThreeEvent, useFrame, useThree } from "@react-three/fiber";
-import { Billboard, BillboardProps, Box, RoundedBox, Text3D, TrackballControls, useCamera } from "@react-three/drei";
+import {
+    Billboard,
+    BillboardProps,
+    Box,
+    RoundedBox,
+    Sky,
+    Stars,
+    Text3D,
+    TrackballControls,
+    useCamera,
+} from "@react-three/drei";
+import { BsFullscreen, BsFullscreenExit } from "react-icons/bs";
 
 const Word = ({
     children,
@@ -138,7 +149,7 @@ const ControlRig = ({ position }: any) => {
     return null;
 };
 
-export default function SkillsSphere() {
+function SkillsSphere() {
     const controlRef: any = useRef();
     const [selectedPosition, setSelectedPosition] = useState<THREE.Vector3 | null>(null);
     const handleWordClick = useCallback((pos: THREE.Vector3) => {
@@ -149,46 +160,56 @@ export default function SkillsSphere() {
 
     return (
         <>
-            <Canvas
-                dpr={[1, 2]}
-                camera={{
-                    rotation: [-1.2343811074791486, -0.5129041452343012, -0.7154151977687712],
-                    position: [-13.699602182000675, 22.971949170497142, 0],
-                    fov: 90,
-                }}
-                style={
-                    fullScreen
-                        ? {
-                              zIndex: 1000,
-                              background: "black",
-                              position: "absolute",
-                              width: "100vw",
-                              height: "100vh",
-                              top: 0,
-                              left: 0,
-                          }
-                        : { height: "100%", width: "100%" }
-                }
-            >
-                <fog attach="fog" args={["#202025", 0, 80]} />
-                <Suspense fallback={null}>
-                    <group rotation={[10, 10.5, 10]}>
-                        <Cloud count={7} radius={24} onPressWord={handleWordClick} />
-                    </group>
-                </Suspense>
-                {/* <Box
+            <Suspense fallback={<p>Loading some 3D stuff..</p>}>
+                <Canvas
+                    className="transition-all bg-gray-800"
+                    dpr={[1, 2]}
+                    camera={{
+                        rotation: [-1.2343811074791486, -0.5129041452343012, -0.7154151977687712],
+                        position: [-13.699602182000675, 22.971949170497142, 0],
+                        fov: 90,
+                    }}
+                    style={
+                        fullScreen
+                            ? {
+                                  zIndex: 1000,
+                                  //   background: "black",
+                                  position: "fixed",
+                                  width: "100vw",
+                                  height: "100vh",
+                                  top: 0,
+                                  left: 0,
+                              }
+                            : { height: "100%", width: "100%" }
+                    }
+                >
+                    {/* <Sky /> */}
+                    <fog attach="fog" args={["#202025", 0, 80]} />
+                    <Stars radius={100} depth={50} count={1000} factor={4} saturation={0} fade speed={1} />
+                    <Suspense fallback={null}>
+                        <group rotation={[10, 10.5, 10]}>
+                            <Cloud count={7} radius={24} onPressWord={handleWordClick} />
+                        </group>
+                    </Suspense>
+                    {/* <Box
                     position={[10, 20, 30]}
                     args={[10, 10, 2]} // Width, height, depth. Default is [1, 1, 1]
                 >
                     <meshStandardMaterial color="#ff0000" />
                 </Box> */}
-                <ControlRig />
-                <TrackballControls />
-            </Canvas>
+                    <ControlRig />
+                    <TrackballControls />
+                </Canvas>
+            </Suspense>
 
-            {/* <button className="text-white z-[2000] bg-black absolute bottom-10 left-10" onClick={() => setFullScreen((f) => !f)}>
-                Toggle
-            </button> */}
+            <button
+                className={`text-white text-xs z-[2000] bg-black  flex justify-start items-center border rounded-full px-4 py-2 border-gray-500 bottom-10 left-10 ${fullScreen ? "fixed" : "absolute"}`}
+                onClick={() => setFullScreen((f) => !f)}
+            >
+                {fullScreen ? <BsFullscreenExit /> : <BsFullscreen />} <span className="ml-2">Toggle</span>
+            </button>
         </>
     );
 }
+
+export default memo(SkillsSphere);

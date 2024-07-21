@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Montserrat } from "next/font/google";
-import "./globals.css";
-import NextTopLoader from "nextjs-toploader";
+import { JetBrains_Mono } from "next/font/google";
 import Footer from "@jay/components/Footer";
 import Navbar from "@jay/components/Navbar";
+
+import "./globals.css";
 
 const montserrat = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
                     type="text/css"
                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
                 />
-                <link rel="icon" href="/favicon.ico" />
+                {/* <link rel="icon" href="/favicon.ico" /> */}
 
                 <link
                     rel="stylesheet"
@@ -33,7 +33,6 @@ export default function RootLayout({
                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
                 />
             </head>
-            {/* <NextTopLoader /> */}
             <body className={`${montserrat.className} bg-gray-50`}>
                 <Navbar />
                 <div className="flex justify-center items-start w-full">{children}</div>

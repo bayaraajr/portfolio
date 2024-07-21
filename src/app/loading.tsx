@@ -4,13 +4,8 @@ import { Canvas } from "@react-three/fiber";
 
 export default function LoadingPage() {
     return (
-        <Canvas style={{ width: "100vw", height: "100vh" }}>
-            <ambientLight intensity={Math.PI / 2} />
-            <Basketball />
-            <mesh>
-                <boxGeometry args={[50, 1, 50]} />
-                <meshStandardMaterial color={"orange"} />
-            </mesh>
-        </Canvas>
+        <div className="fixed bg-white h-screen w-screen flex justify-center items-center">
+            <p className="">Loading...</p>
+        </div>
     );
 }

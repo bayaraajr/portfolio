@@ -17,16 +17,16 @@ export default function Home() {
         <div className="max-w-[1200px]">
             <div className="grid grid-cols-4 w-full gap-4">
                 <Introduction />
-                <CurrentTime />
-                <InstagramStories />
-                <EGolomt />
-                <SkillsGrid />
-                <AegisGrid />
                 <CertificationGrid />
-                <ContactGrid />
+                <InstagramStories />
                 <LinksGrid />
+                <SkillsGrid />
                 <BasketballGrid />
-                <SpotifyPlayer />
+                {/* <AegisGrid /> */}
+                <CurrentTime />
+                <EGolomt />
+                <ContactGrid />
+                {/* <SpotifyPlayer /> */}
             </div>
         </div>
     );
